@@ -66,11 +66,17 @@ convert 'input.gif[0]' output.gif
 # **参考资料**
 
 [FFmpeg CompilationGuide/MacOSX][1]
+
 [Convert Video to GIF or GIF to Video][2]
+
 [Get the First Frame of an Animated GIF with ImageMagick][3]
+
 [Create an Image Preview from a Video][4]
+
 [How to speed up / slow down a video][5]
+
 [ffmpeg useful commands (FFMPEG 命令大全)][6]
+
 [ffmpeg 文档][7]
 
 [0]: https://segmentfault.com/a/1190000000436384
