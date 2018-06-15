@@ -2,9 +2,9 @@ package com.hd.transfer;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.annotation.RequiresPermission;
 import android.support.annotation.Size;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * you can customize commands by yourself {@link TransferGif#transfer(String[])},
  * the following is a simple example.
  */
-@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public final class TransferGif {
 
     static {
