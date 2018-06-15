@@ -11,10 +11,10 @@ ffmpeg -v warning -i input.mp4 -filter:v "setpts=0.2*PTS" -s 1080x1920 -r 15 -b 
 
 ```
 //1.生成全局调色板
-ffmpeg -ss startTime -t duration -i input.mp4 -b 568k -r 20 -vf fps=20,scale=320:-1:flags=lanczos,palettegen -y output.png
+ffmpeg -ss startTime -t duration -i input.mp4 -b 568k -r 20 -vf fps=20,scale=320:-1:flags=lanczos,palettegen -y output.jpeg
 
 //2.利用调色板图片和视频源文件同时处理生成 gif
-ffmpeg -v warning -ss startTime -t duration -i input.mp4 -i outpur.png -r 15 -lavfi fps=15,scale=270:-1:flags=lanczos[x];[x][1:v]paletteuse -y output.gif;
+ffmpeg -v warning -ss startTime -t duration -i input.mp4 -i outpur.jpeg -r 15 -lavfi fps=15,scale=270:-1:flags=lanczos [x]; [x][1:v] paletteuse -y output.gif;
 ```
 
 ## 下面是基本操作

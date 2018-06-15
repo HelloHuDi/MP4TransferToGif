@@ -5,19 +5,31 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
+set(CMAKE_VERBOSE_MAKEFILE on)
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/${ANDROID_ABI})
+
+set(LINK_DIR ${CMAKE_CURRENT_LIST_DIR}/../lib/${ANDROID_ABI})
+link_directories(${LINK_DIR})
+
+set(INCLUDE_DIR "/Users/hd/androidWorkspace/androidStudio/about_video_audio/ffmpeg-3.4.2")
+include_directories(${CMAKE_CURRENT_LIST_DIR} ${INCLUDE_DIR})
+
+aux_source_directory(${CMAKE_CURRENT_LIST_DIR} SOURCE_DIR)
+
 add_library( # Sets the name of the library.
-             native-lib
+             transfer
 
              # Sets the library as a shared library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp )
+             ${SOURCE_DIR} )
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -37,8 +49,16 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-                       native-lib
+                       transfer
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       ${log-lib} )
+                       ${log-lib}
+                        avcodec-57
+                        avdevice-57
+                        avfilter-6
+                        avformat-57
+                        avutil-55
+                        swresample-2
+                        swscale-4
+                        )
