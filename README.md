@@ -8,6 +8,8 @@
 
 ### 基于FFmpeg提供一个能将视频文件转换为gif图片的库
 
+#### [包含本功能提供录屏并转换成gif的工具库](https://github.com/HelloHuDi/ScreenRecordTool)
+
 #### [关于使用FFmpeg转换gif的相关指令](FFMPEG.md)
 
 #### [Mac环境下编译及移植FFmpeg so库到Android](https://github.com/HelloHuDi/NDK_Learn/tree/master/Third_Learn)
