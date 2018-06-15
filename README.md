@@ -1,3 +1,11 @@
+<p align="center">
+	<img width="72" height="72" src="art/ic_launcher-web.png"/>
+</p>
+<h3 align="center">MP4transferToGif</h3>
+<p align="center">
+<a href="" target="_blank"><img src="https://img.shields.io/badge/release-v1.0-blue.svg"></img></a>
+</p>
+
 ### 基于FFmpeg提供一个能将视频文件转换为gif图片的库
 
 #### [关于使用FFmpeg转换gif的相关指令](FFMPEG.md)
