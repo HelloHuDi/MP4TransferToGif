@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.hd.transfer.TransferGif;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
 
     private final static String inputParentPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES) + "/screen_capture/";
@@ -46,21 +48,26 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void startTransfer(final int mode) {
-        final long startTime = System.currentTimeMillis();
-        tvTransfer.setText("start transfer :" + startTime);
-        new Thread(new Runnable() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-            @Override
-            public void run() {
-                boolean state;
-                if (mode == 0) {
-                    state = TransferGif.transfer(inputParentPath + videoName, inputParentPath + gifName, inputParentPath + paletteName);
-                } else {
-                    state = TransferGif.transfer(inputParentPath + videoName, inputParentPath + gifName);
+        File file=new File(inputParentPath,videoName);
+        if(file.exists() && file.isFile()) {
+            final long startTime = System.currentTimeMillis();
+            tvTransfer.setText("start transfer :" + startTime);
+            new Thread(new Runnable() {
+                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                @Override
+                public void run() {
+                    boolean state;
+                    if (mode == 0) {
+                        state = TransferGif.transfer(inputParentPath + videoName, inputParentPath + gifName, inputParentPath + paletteName);
+                    } else {
+                        state = TransferGif.transfer(inputParentPath + videoName, inputParentPath + gifName);
+                    }
+                    reportState(state, startTime);
                 }
-                reportState(state, startTime);
-            }
-        }).start();
+            }).start();
+        }else{
+            tvTransfer.setText("No such file or directory !");
+        }
     }
 
     private void reportState(final boolean state, long startTime) {
